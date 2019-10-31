@@ -1,21 +1,33 @@
+/* eslint-disable no-undef */
+
 require('./app.scss');
 
+import US from 'mass.js/src/units/US';
+import UK from 'mass.js/src/units/UK';
+import SI from 'mass.js/src/units/SI';
 import MassJS from 'mass.js/src/mass';
-import Units from 'mass.js/src/units/US';
-const Mass = new MassJS(Units);
+
+const Units = {
+    US,
+    UK,
+    SI
+};
+
+const Mass = new MassJS({});
 
 var inputMass;
 var outputValue;
 var outputFormat;
-var loaded = false;
-var errors;
+var inputUnits;
+var outputUnits;
 
 $(() => {
     inputMass = document.getElementById('inputMass');
     outputValue = document.getElementById('outputValue');
     outputFormat = document.getElementById('outputFormat');
+    inputUnits = document.getElementById('inputUnits');
 
-    CodeMirror(document.getElementById('outputUnits'), {
+    outputUnits = CodeMirror(document.getElementById('outputUnits'), {
         lineNumbers: true,
         mode: {
             name: 'javascript',
@@ -24,14 +36,18 @@ $(() => {
         gutters: ['CodeMirror-lint-markers'],
         lint: {
             getAnnotations: jsonValidator,
-            async: true 
+            async: true
         },
-        value: JSON.stringify(Units, null, 4)
+        value: JSON.stringify(Units.US, null, 4)
     });
 
-    inputMass.onkeyup = onInput;
+    inputUnits.onchange = function() {
+        outputUnits.getDoc().setValue(
+            JSON.stringify(Units[this.options[this.selectedIndex].value], null, 4)
+        );
+    };
 
-    loaded = true;
+    inputMass.oninput = onInput;
 });
 
 function onInput() {
@@ -46,24 +62,30 @@ function onInput() {
         }
     } catch (e) {
         resetOutput();
+
+        console.error(e);
     }
 }
 
-function resetOutput() {
+async function resetOutput() {
     outputValue.value = '';
     outputFormat.value = '';
 }
 
-function jsonValidator(cm, updateLinting, options) {
-    errors = CodeMirror.lint.json(cm, options);
+async function jsonValidator(cm, updateLinting, options) {
+    let errors = CodeMirror.lint.json(cm, options);
 
     updateLinting(errors);
-    
-    resetOutput();
 
-    if (loaded && errors.length === 0) {
+    if (errors.length === 0) {
         Mass.units = JSON.parse(cm);
 
-        onInput();
+        if (inputMass.value.length > 0) {
+            onInput();
+        }
+
+        console.log('Updated units');
+    } else {
+        resetOutput();
     }
 }

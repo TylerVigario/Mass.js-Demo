@@ -14,16 +14,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mass.js": "^1.1.4"
+    "mass.js": "^1.2.0"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.0",
+    "autoprefixer": "^9.7.1",
     "css-loader": "^3.2.0",
     "postcss-loader": "^3.0.0",
     "sass": "^1.23.2",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.10"
   }
 }

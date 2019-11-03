@@ -33,7 +33,7 @@ $(() => {
 
     inputMass.oninput = onInput;
 
-    writtenFormat.onclick = onInput();
+    writtenFormat.onclick = onInput;
 
     outputUnits.value = JSON.stringify(Units.US, null, 4);
 

@@ -51,7 +51,9 @@ $(() => {
     });
 
     inputUnits.onchange = function() {
-        outputUnits.value = JSON.stringify(Units[this.options[this.selectedIndex].value], null, 4);
+        cm.getDoc().setValue(
+            JSON.stringify(Units[this.options[this.selectedIndex].value], null, 4)
+        );
     };
 
     $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {

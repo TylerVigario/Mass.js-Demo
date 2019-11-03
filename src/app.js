@@ -20,14 +20,24 @@ var outputValue;
 var outputFormat;
 var inputUnits;
 var outputUnits;
+var writtenFormat;
+var cm;
 
 $(() => {
-    inputMass = document.getElementById('inputMass');
-    outputValue = document.getElementById('outputValue');
-    outputFormat = document.getElementById('outputFormat');
-    inputUnits = document.getElementById('inputUnits');
+    inputMass = document.getElementById('input-mass');
+    outputValue = document.getElementById('output-value');
+    outputFormat = document.getElementById('output-format');
+    inputUnits = document.getElementById('input-units');
+    outputUnits = document.getElementById('output-units');
+    writtenFormat = document.getElementById('written-format');
 
-    outputUnits = CodeMirror(document.getElementById('outputUnits'), {
+    inputMass.oninput = onInput;
+
+    writtenFormat.onclick = onInput();
+
+    outputUnits.value = JSON.stringify(Units.US, null, 4);
+
+    cm = CodeMirror.fromTextArea(outputUnits, {
         lineNumbers: true,
         mode: {
             name: 'javascript',
@@ -37,17 +47,18 @@ $(() => {
         lint: {
             getAnnotations: jsonValidator,
             async: true
-        },
-        value: JSON.stringify(Units.US, null, 4)
+        }
     });
 
     inputUnits.onchange = function() {
-        outputUnits.getDoc().setValue(
-            JSON.stringify(Units[this.options[this.selectedIndex].value], null, 4)
-        );
+        outputUnits.value = JSON.stringify(Units[this.options[this.selectedIndex].value], null, 4);
     };
 
-    inputMass.oninput = onInput;
+    $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+        if (e.target.id === 'units-tab') {
+            cm.refresh();
+        }
+    });
 });
 
 function onInput() {
@@ -56,7 +67,10 @@ function onInput() {
 
         if (typeof value === 'number') {
             outputValue.value = value;
-            outputFormat.value = Mass.format(value);
+
+            outputFormat.value = Mass.format(value, {
+                written: writtenFormat.checked
+            });
         } else {
             resetOutput();
         }

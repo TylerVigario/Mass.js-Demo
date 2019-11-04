@@ -13,7 +13,7 @@ const Units = {
     SI
 };
 
-const Mass = new MassJS({});
+const Mass = new MassJS([]);
 
 var inputMass;
 var outputValue;

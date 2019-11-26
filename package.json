@@ -17,10 +17,10 @@
     "mass.js": "^1.2.3"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.1",
+    "autoprefixer": "^9.7.2",
     "css-loader": "^3.2.0",
     "postcss-loader": "^3.0.0",
-    "sass": "^1.23.3",
+    "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",

@@ -18,12 +18,12 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.7.3",
-    "css-loader": "^3.3.0",
+    "css-loader": "^3.4.0",
     "postcss-loader": "^3.0.0",
-    "sass": "^1.23.7",
+    "sass": "^1.24.0",
     "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.1",
-    "webpack": "^4.41.2",
+    "style-loader": "^1.1.1",
+    "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10"
   }
 }

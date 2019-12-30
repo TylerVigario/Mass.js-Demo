@@ -51,6 +51,9 @@ $(() => {
     });
 
     inputUnits.onchange = function() {
+        // logs a conversion for goal 1
+        _paq.push(['trackGoal', 2]);
+
         cm.getDoc().setValue(
             JSON.stringify(Units[this.options[this.selectedIndex].value], null, 4)
         );

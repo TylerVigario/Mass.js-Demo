@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+    <meta name="author" content="Tyler Vigario">
+
+    <link rel="icon" href="favicon.ico">
+
+    <title>Mass.js | Demo</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/fontawesome.css" integrity="sha256-YC896To53D/eet6K3jAwOq67iCIK24u2Hg6CQ+026I8=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/brands.css" integrity="sha256-hIzRfkDG8yoX/o/xO8mmqvlHMAOHQsUetvMFu3Fa/vY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css" integrity="sha256-vZ3SaLOjnKO/gGvcUWegySoDU6ff33CS5i9ot8J9Czk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/lint/lint.min.css" integrity="sha256-h8ssETVF7g7LAuYcBn+6AQDL1DLfLVwuiBrLrk3yHks=" crossorigin="anonymous" />
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://www.analytics.tylervigario.com/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d = document,
+                g = d.createElement('script'),
+                s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.async = true;
+            g.defer = true;
+            g.src = u + 'matomo.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Mass.js</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Demo <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/MeekLogic/Mass.js">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+        <div class="starter-template">
+            <h1>Mass.js</h1>
+
+            <p class="lead">JavaScript library for parsing and formatting mass units.</p>
+
+            <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="demo-tab" data-toggle="pill" href="#demo" role="tab"
+                        aria-controls="demo" aria-selected="true">Demo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="units-tab" data-toggle="pill" href="#units" role="tab" aria-controls="units"
+                        aria-selected="false">Active units</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="demo" role="tabpanel" aria-labelledby="demo-tab">
+                <div class="form-group">
+                    <label for="input-mass">User input</label>
+                    <input class="form-control" id="input-mass" placeholder="24 lbs 4 oz" aria-describedby="mass-help">
+                    <small id="mass-help" class="form-text text-muted">Input any mass string.</small>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="output-value">Result</label>
+                            <input type="text" id="output-value" class="form-control" aria-describedby="value-help" readonly>
+                            <small id="value-help" class="form-text text-muted">Parsed input converted to base unit
+                                (pound) value.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="output-format">Formatted</label>
+                            <input type="text" id="output-format" class="form-control" aria-describedby="format-help" readonly>
+                            <small id="format-help" class="form-text text-muted">Human-readable string output from
+                                value.</small>
+                        </div>
+
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="written-format">
+                            <label class="form-check-label" for="written-format">Written format</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="units" role="tabpanel" aria-labelledby="units-tab">
+                <select id="input-units" class="form-control mb-2">
+                    <option value="US" selected>U.S. customary</option>
+                    <option value="UK">Imperial</option>
+                    <option value="SI">International System of Units (unfinished)</option>
+                </select>
+
+                <textarea id="output-units"></textarea>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js" integrity="sha256-fTuUgtT7O2rqoImwjrhDgbXTKUwyxxujIMRIK7TbuNU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js" integrity="sha256-dPTL2a+npIonoK5i0Tyes0txCMUWZBf8cfKRfACRotc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/javascript/javascript.min.js" integrity="sha256-7AjEsHnW7cpq2raC/uxnGCP2G4zIKmCdz7OAv6LN00o=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/lint/lint.min.js" integrity="sha256-oryLpjYZyyfy09Upmg0OkeX/ehP3OIZ3q26mzjb1PGA=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsonlint/1.6.0/jsonlint.min.js" integrity="sha256-yWZBgNxWVjnXu4Tut5/J0MAvczYc2U3SuK0svKSMaW4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/lint/json-lint.min.js" integrity="sha256-mWRA+eRb2A3v8WLC4QSEVKYYgWuy1jYrLoi4+tbWrnU=" crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

@@ -68,6 +68,9 @@ function onInput() {
         let value = Mass.parse(inputMass.value);
 
         if (typeof value === 'number') {
+            // logs a conversion for goal 1
+            _paq.push(['trackGoal', 1]);
+
             outputValue.value = value;
 
             outputFormat.value = Mass.format(value, {

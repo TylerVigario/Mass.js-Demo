@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mass.js": "^1.2.3"
+    "mass.js": "^1.2.4"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.3",

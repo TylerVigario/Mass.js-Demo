@@ -3,15 +3,16 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     entry: {
-        main: ['babel-polyfill', './src/app.js'],
+        main: ['./src/app.js'],
     },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
     },
     optimization: {
-        minimize: true,
-        minimizer: [new TerserPlugin()],
+        minimizer: [new TerserPlugin({
+            extractComments: false
+        })],
     },
     module: {
         rules: [
@@ -38,7 +39,15 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
+                        presets: [
+                            [
+                                '@babel/preset-env',
+                                {
+                                    'corejs': '3',
+                                    'useBuiltIns': 'usage'
+                                }
+                            ]
+                        ]
                     }
                 }
             }

@@ -1,7 +1,5 @@
 /* eslint-disable no-undef */
 
-require('./app.scss');
-
 import US from 'mass.js/src/units/US';
 import UK from 'mass.js/src/units/UK';
 import SI from 'mass.js/src/units/SI';

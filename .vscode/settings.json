@@ -1,9 +1,9 @@
 {
-    "editor.detectIndentation": false,
-    "cSpell.words": [
-        "gtag",
-        "highlightjs",
-        "hljs",
-        "jsdelivr"
-    ]
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "javascript.format.semicolons": "insert",
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "[html]": {
+    "editor.tabSize": 4,
+  }
 }

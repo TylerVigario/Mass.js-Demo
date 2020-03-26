@@ -1,30 +1,37 @@
 {
-  "name": "mass.js-demo",
+  "name": "@meeklogic/mass-demo",
   "version": "1.0.0",
   "description": "Demonstration website for Mass.js",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "npm run development",
-    "development": "webpack --mode=development --config webpack.config.js",
-    "lint": "eslint --config ./.eslintrc.js ./src/app.js",
+    "development": "html-minifier --output ./dist/index.html ./src/index.html && webpack --mode=development --config webpack.config.cjs",
+    "lint": "html-minifier-lint ./src/index.html && eslint --config ./.eslintrc.json ./src/**/*.mjs",
     "prod": "npm run production",
-    "production": "webpack --mode=production --config webpack.config.js",
+    "production": "html-minifier --config-file ./html-minifier.conf --output ./dist/index.html ./src/index.html && webpack --mode=production --config webpack.config.cjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "MeekLogic (Tyler Vigario)",
-  "license": "GPL-3.0-only",
+  "author": {
+    "name": "MeekLogic (Tyler Vigario)",
+    "email": "tylervigario90@gmail.com"
+  },
+  "license": "MIT",
   "dependencies": {
-    "mass.js": "^1.2.4"
+    "mass.js": "^1.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
-    "babel-loader": "^8.0.6",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
     "core-js": "^3.6.4",
     "eslint": "^6.8.0",
-    "regenerator-runtime": "^0.13.3",
+    "eslint-config-google": "^0.14.0",
+    "html-minifier": "^4.0.0",
+    "html-minifier-lint": "^2.0.0",
+    "regenerator-runtime": "^0.13.5",
     "terser-webpack-plugin": "^2.3.5",
-    "webpack": "^4.42.0",
+    "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   }
 }

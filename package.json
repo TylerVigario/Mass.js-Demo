@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "npm run development",
     "development": "html-minifier --output ./dist/index.html ./src/index.html && webpack --mode=development --config webpack.config.cjs",
-    "lint": "html-minifier-lint ./src/index.html && eslint --config ./.eslintrc.json ./src/**/*.mjs",
+    "lint": "html-minifier-lint ./src/index.html && eslint --config .eslintrc.json src/app.mjs",
     "prod": "npm run production",
     "production": "html-minifier --config-file ./html-minifier.conf --output ./dist/index.html ./src/index.html && webpack --mode=production --config webpack.config.cjs",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,6 +27,9 @@
     "core-js": "^3.6.4",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-plugin-ava": "^10.2.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
     "html-minifier": "^4.0.0",
     "html-minifier-lint": "^2.0.0",
     "regenerator-runtime": "^0.13.5",

@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 import US from 'mass.js/lib/units/US.mjs';
 import UK from 'mass.js/lib/units/UK.mjs';
 import SI from 'mass.js/lib/units/SI.mjs';
@@ -21,7 +19,7 @@ let outputUnits;
 let writtenFormat;
 let cm;
 
-$(() => {
+(() => {
   inputMass = document.getElementById('input-mass');
   outputValue = document.getElementById('output-value');
   outputFormat = document.getElementById('output-format');

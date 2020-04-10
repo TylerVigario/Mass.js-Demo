@@ -1,27 +1,43 @@
 {
   "env": {
+    "browser": true,
+    "commonjs": true,
     "es6": true,
     "es2017": true,
     "es2020": true,
+    "jquery": true,
     "node": true
   },
+  "plugins": [
+    "jquery",
+    "ava",
+    "node",
+    "import",
+    "jsdoc"
+  ],
   "extends": [
     "eslint:recommended",
+    "google",
+    "plugin:jquery/deprecated",
     "plugin:ava/recommended",
     "plugin:node/recommended-module",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "google"
+    "plugin:jsdoc/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+    "SharedArrayBuffer": "readonly",
+    "CodeMirror": "readonly",
+    "_paq": "readonly"
   },
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
   "rules": {
-    "max-len": "warn"
+    "max-len": "warn",
+    "valid-jsdoc": "off",
+    "require-jsdoc": "off"
   }
 }

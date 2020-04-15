@@ -9,21 +9,21 @@
     "node": true
   },
   "plugins": [
-    "jquery",
     "ava",
     "node",
     "import",
-    "jsdoc"
+    "jsdoc",
+    "jquery"
   ],
   "extends": [
     "eslint:recommended",
     "google",
-    "plugin:jquery/deprecated",
     "plugin:ava/recommended",
     "plugin:node/recommended-module",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:jsdoc/recommended"
+    "plugin:jsdoc/recommended",
+    "plugin:jquery/deprecated"
   ],
   "globals": {
     "Atomics": "readonly",

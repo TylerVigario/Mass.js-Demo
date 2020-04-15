@@ -19,7 +19,7 @@ let outputUnits;
 let writtenFormat;
 let cm;
 
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
   inputMass = document.getElementById('input-mass');
   outputValue = document.getElementById('output-value');
   outputFormat = document.getElementById('output-format');

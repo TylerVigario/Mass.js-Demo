@@ -1,7 +1,4 @@
 {
-  "name": "@meeklogic/mass-demo",
-  "version": "1.0.0",
-  "description": "Demonstration website for Mass.js",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
-    "name": "MeekLogic (Tyler Vigario)",
+    "name": "Tyler Vigario",
     "email": "tylervigario90@gmail.com"
   },
   "license": "MIT",
@@ -24,17 +21,18 @@
     "node": ">=12"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "babel-loader": "^8.1.0",
     "core-js": "^3.6.5",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-plugin-ava": "^10.2.0",
+    "eslint-plugin-ava": "^10.3.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jquery": "^1.5.1",
     "eslint-plugin-jsdoc": "^24.0.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-security": "^1.4.0",
     "html-minifier": "^4.0.0",
     "html-minifier-lint": "^2.0.0",
     "regenerator-runtime": "^0.13.5",

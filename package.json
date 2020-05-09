@@ -3,10 +3,16 @@
   "type": "module",
   "scripts": {
     "dev": "npm run development",
-    "development": "html-minifier --output ./dist/index.html ./src/index.html && webpack --mode=development --config webpack.config.cjs",
-    "lint": "html-minifier-lint ./src/index.html && eslint --config .eslintrc.json src/app.mjs",
+    "development": "npm run development:html && npm run development:js",
+    "development:html": "html-minifier --output ./dist/index.html ./src/index.html",
+    "development:js": "webpack --mode=development --config webpack.config.cjs --progress",
+    "lint": "npm run lint:html && npm run lint:js",
+    "lint:html": "html-minifier-lint ./src/index.html",
+    "lint:js": "eslint --config .eslintrc.json src/ --ext .mjs",
     "prod": "npm run production",
-    "production": "html-minifier --config-file ./html-minifier.conf --output ./dist/index.html ./src/index.html && webpack --mode=production --config webpack.config.cjs",
+    "production": "npm run production:html && npm run production:js",
+    "production:html": "html-minifier --config-file ./html-minifier.conf --output ./dist/index.html ./src/index.html",
+    "production:js": "webpack --mode=production --config webpack.config.cjs --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
@@ -36,7 +42,7 @@
     "html-minifier": "^4.0.0",
     "html-minifier-lint": "^2.0.0",
     "regenerator-runtime": "^0.13.5",
-    "webpack": "^4.43.0",
+    "webpack": "^5.0.0-beta.16",
     "webpack-cli": "^3.3.11"
   }
 }

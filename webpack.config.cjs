@@ -7,6 +7,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+    ecmaVersion: 5,
   },
   module: {
     rules: [
@@ -29,5 +30,8 @@ module.exports = {
         },
       },
     ],
+  },
+  experiments: {
+    mjs: true,
   },
 };

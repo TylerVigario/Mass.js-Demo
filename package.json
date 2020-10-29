@@ -1,6 +1,7 @@
 {
   "private": true,
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "npm run development",
     "development": "npm run development:html && npm run development:js",
@@ -19,30 +20,29 @@
     "name": "Tyler Vigario",
     "email": "tylervigario90@gmail.com"
   },
-  "license": "MIT",
-  "dependencies": {
-    "mass.js": "github:TylerVigario/Mass.js#i18n"
-  },
   "engines": {
     "node": ">=12"
   },
+  "dependencies": {
+    "mass.js": "github:TylerVigario/Mass.js#i18n"
+  },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.1.0",
     "core-js": "^3.6.5",
-    "eslint": "^7.3.1",
+    "eslint": "^7.12.1",
     "eslint-config-google": "^0.14.0",
-    "eslint-plugin-ava": "^10.3.1",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-ava": "^11.0.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jquery": "^1.5.1",
-    "eslint-plugin-jsdoc": "^28.6.1",
+    "eslint-plugin-jsdoc": "^30.7.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-security": "^1.4.0",
     "html-minifier": "^4.0.0",
     "html-minifier-lint": "^2.0.0",
-    "regenerator-runtime": "^0.13.5",
-    "webpack": "^5.0.0-beta.20",
-    "webpack-cli": "^3.3.12"
+    "regenerator-runtime": "^0.13.7",
+    "webpack": "^5.3.1",
+    "webpack-cli": "^4.1.0"
   }
 }

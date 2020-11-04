@@ -1,12 +1,6 @@
-const path = require('path');
-
 module.exports = {
   entry: {
     main: ['./src/app.mjs'],
-  },
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [

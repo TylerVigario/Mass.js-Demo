@@ -95,9 +95,9 @@ async function resetOutput() {
 /**
  * Override CodeMirror JSON linter
  *
- * @param {*} cm
- * @param {*} updateLinting
- * @param {*} options
+ * @param {*} cm CodeMirror instance.
+ * @param {*} updateLinting CodeMirror callback.
+ * @param {*} options CodeMirror lint options.
  */
 async function jsonValidator(cm, updateLinting, options) {
   const errors = CodeMirror.lint.json(cm, options);
